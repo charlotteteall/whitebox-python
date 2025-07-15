@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" This file is intended to be a helper for running whitebox-tools plugins from a Python script.
+"""This file is intended to be a helper for running whitebox-tools plugins from a Python script.
 See whitebox_example.py for an example of how to use it.
 """
 
@@ -62,7 +62,7 @@ def download_wbt(linux_musl=False, reset=False, verbose=True):
     exe_dir = os.path.join(
         pkg_dir, "WBT"
     )  # Get directory of WhiteboxTools executable file
-    work_dir = os.path.join(pkg_dir, "testdata")  # Set working directory
+    # work_dir = os.path.join(pkg_dir, "testdata")  # Set working directory
     init_img_dir = os.path.join(exe_dir, "img")
     new_img_dir = os.path.join(pkg_dir, "img")
     init_plugin_dir = os.path.join(exe_dir, "plugins")
@@ -249,14 +249,14 @@ def download_wbt(linux_musl=False, reset=False, verbose=True):
 
             webbrowser.open("https://www.whiteboxgeo.com/", new=2)
 
-        if not os.path.exists(work_dir):
-            if verbose:
-                print("Downloading testdata ...")
-            os.mkdir(work_dir)
-            dem_url = "https://github.com/opengeos/whitebox-python/raw/master/examples/testdata/DEM.tif"
-            dep_url = "https://github.com/opengeos/whitebox-python/raw/master/examples/testdata/DEM.dep"
-            urllib.request.urlretrieve(dem_url, os.path.join(work_dir, "DEM.tif"))
-            urllib.request.urlretrieve(dep_url, os.path.join(work_dir, "DEM.dep"))
+        # if not os.path.exists(work_dir):
+        #     if verbose:
+        #         print("Downloading testdata ...")
+        #     os.mkdir(work_dir)
+        #     dem_url = "https://github.com/opengeos/whitebox-python/raw/master/examples/testdata/DEM.tif"
+        #     dep_url = "https://github.com/opengeos/whitebox-python/raw/master/examples/testdata/DEM.dep"
+        #     urllib.request.urlretrieve(dem_url, os.path.join(work_dir, "DEM.tif"))
+        #     urllib.request.urlretrieve(dep_url, os.path.join(work_dir, "DEM.dep"))
 
     except:
         print("Unexpected error:", sys.exc_info()[0])
@@ -1019,8 +1019,8 @@ class WhiteboxTools(object):
 
             print(
                 """
-You will need to activate a license before using this extension. If you do 
-not currently have a valid activation key, you may purchase one by visiting 
+You will need to activate a license before using this extension. If you do
+not currently have a valid activation key, you may purchase one by visiting
 https://www.whiteboxgeo.com/extension-pricing/"""
             )
             # Does the user want to register an activation key for this extension?
